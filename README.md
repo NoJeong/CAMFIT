@@ -1,229 +1,323 @@
-# 사진 읽어주는 인공지능
-![image](https://user-images.githubusercontent.com/59387731/98904357-c88d6400-24fc-11eb-8daa-c15a09c4c0de.png)
+# CamFit
 
-# Pytorch tutorial
-1) [스켈레톤](https://colab.research.google.com/drive/1p7jF-Hl07EMu7rfG5AbcfAEpManNFv5E?usp=sharing) 
-
-# Introduction
-본 프로젝트는 인공지능(AI : Artificial Intelligence)에 대한 원리 및 이해를 바탕으로 사용자에게 인공지능 기능을 적용한 웹 서비스 구축을 목표로 합니다. 
-
-<img width="580" alt="Screen Shot 2020-11-28 at 1 53 14 PM" src="https://user-images.githubusercontent.com/59387731/100494055-1226b180-3181-11eb-975d-078edc7ca446.png">
-
-전체 시스템은 위의 그림과 같이 3단계로 구성되어 있습니다.
-
-- Image Captioning : 이미지를 설명하는 캡션 추출
-- Text to Speech : 추출된 캡션을 스피치로 합성
-- Voice Conversion : 합성된 스피치를 원하는 목소리로 변환
-
-# Code organization
-    ├── README.md             <- Top-level README.        
-    │
-    ├── web              <-- [GUI script]
-    │   ├── web
-    │       ├── static            <-- Static resource(css, js)
-    │       ├── template          <-- Html (web page)
-    │       ├── apps.py           <-- Configuration of app
-    │       ├── urls.py           <-- Define url router
-    │       ├── views.py          <-- Include business logic for reuqest
-    │
-    ├── speak_image           <-- [AI models]
-    │   ├── IC                    <- Image captioning directory
-    │       ├── image_captioning.py 
-    │   ├── TTS                   <- Text-to-speech directory
-    │       ├── tacotron.py
-    │       ├── train.py
-    │   ├── VC                    <- Voice conversion directory
-    │       ├── preprocess
-    │       ├── voice_conversion.py    
-    │       ├── train.sh
-    │   ├── Speak_Image.py    <- Defining all the AI models (connected to GUI)
-    │   ├── main.py           <- main file (connected to GUI)
-
-# Install Dependencies
-**[WARNING] anaconda 가상환경을 사용하시는 것을 권장드립니다.**
-
-```
-#create venv
-conda create -n [NAME] python=3.7.x
-```
-[NAME] : name of the virtual environment
-
-```
-#activate
-source activate [NAME]
-```
-
-```
-#deactivate
-conda deactivate
-```
-
-다음으로 프레임워크 및 라이브러리를 설치합니다. 윈도우와 리눅스(우분투) 환경은 아래와 같습니다.
-#### Windows(10)
-`Widows10 / GPU: 2080-super / CUDA: 10.1 / cudnn: 7.5.1 / anaconda=4.9.2 기준`
-
-#### Linux(Ubuntu)
-`Ubuntu 18.04 / GPU: V100 / CUDA: 10.1 / cudnn: 7.6 / anaconda=4.8.2 기준`
-
-1) pytorch 설치
-```
-conda install pytorch torchvision torchaudio cudatoolkit=10.1 -c pytorch
-```
-pytorch=1.7.0
-
-2) tensorflow-gpu 설치
-```
-pip install tensorflow-gpu
-```
-
-tensorflow-gpu=2.4.0
-
-3) 웹서버 django 설치
-```
-pip install django
-```
-
-(4) ffmpeg 설치
-```
-conda install -c conda-forge ffmpeg
-```
-
-5) 이외에 필요한 모듈을 설치
-```
-pip install -r requirements.txt
-```
-
-# Pre-trained model & build file
-
-#### IC
-(1) 동적 라이브러리 빌드하기
-- /speak_image/IC/vqa_origin/ 로 이동
-- `python setup.py build develop` 실행
-- /speak_image/IC/vqa_origin/maskrcnn_benchmark/ 동적 라이브러리 생성 확인
-**- windows의 경우 .pyd 파일, linux의 경우 .iso 파일이 만들어집니다**
-
-(2) [detectron pre-trained model](https://drive.google.com/file/d/1A6S00G5uRtDYWrtB32QP5KkpYrgHBR68/view?usp=sharing) : /speak_image/IC/image_captioning.py 에서 경로 수정 필요
-
-(3) [vocab](https://drive.google.com/file/d/13hJT7MV2K3ugC4gPE9hTvVR3PyuJzC67/view?usp=sharing) : /speak_image/IC/image_captioning.py 에서 경로 수정 필요
-
-(4) [captioning pre-trained model](https://drive.google.com/file/d/1AZx47VgVLv58JtSe_FnWPSKfx88G72iS/view?usp=sharing) : /speak_image/IC/image_captioning.py 에서 경로 수정 필요
-
-#### TTS
-(1) [Tacotron pre-trained model](https://drive.google.com/file/d/1IUWQHB2cFQXekNuo-yCoKrY5wD8nNpnV/view?usp=sharing) : /speak_image/TTS/tacotron.py 에서 경로 수정 필요
-**위 모델은 추가 학습이 더 필요한 모델입니다** 
-
-(2) [Waveglow pre-trained model](https://drive.google.com/file/d/1lVP5gQoB-fi6aydKuxjVE64qMexGX2yL/view?usp=sharing) : /speak_image/TTS/tacotron.py 에서 경로 수정 필요
+> 개발 기간 : 2021/03/01 ~ 2021/04/09
 
 
-# Overall
-/web 디렉토리로 이동하여 아래 명령 실행
-```
-python manage.py runserver [IP:PORT]
-```
 
-# Individual Models (Sub PJTs 기능명세서 )
-**[WARNING] Sub PJTs 기능 명세서를 참고하여 작성하시길 바랍니다.**
-## IC (Image Captioning) => Sub PJT 1
-### TODO
-/speak_image/IC로 이동하여 아래 항목을 작성 필요
-- **requirements.txt** : 필요한 라이브러리 기입하여 한번에 install
-- **image_captioning.py** : 작성되어 있는 Caption_Model, FeatureExtractor 클래스를 이해하여 사진 입력시 캡셔닝 결과를 출력하는 main문 작성 
+#### 🖐 Developer
 
-아래 명령을 통해 이미지를 입력하고, 캡셔닝 결과를 얻을 수 있다.
-```
-python image_captioning.py
-```
+* 박노정
 
-## TTS (Text-to-Speech) => Sub PJT 2
+* 백규태 
 
-### Audio preprocessing
-(1) [Melspectrogram tutorial](https://colab.research.google.com/drive/1YRX9ZXKQFS8h_IJCkx3RiWAt7sp8jbga?usp=sharing) : 음성 데이터 전처리 방법에 대한 튜토리얼 입니다.
+* 이경연 
 
-### TODO
-/speak_image/TTS로 이동하여 아래 항목을 작성 필요
-- **requirements.txt** : 필요한 라이브러리 기입하여 한번에 install
-- **train.py** : 모델을 학습시키는 코드 작성
-- **tacotron.py** : 학습시킨 모델에 텍스트를 입력하여 음성을 출력하는 코드 작성
+* 이대헌 
 
-### Training
-(1) LJ Speech dataset 다운로드하여 /speak_image/TTS 에 위치
+* 이혜진 
 
-* [LJ Speech](https://keithito.com/LJ-Speech-Dataset/): 131,000개의 (음성, 텍스트) 단일 여성 음성 데이터
+  
 
-(2) /speak_image/TTS/filelists 로 이동하여 txt파일의 파일 위치 확인
+### 🏋️‍♂️ CamFit 란?
 
-(3) /speak_image/TTS 디렉토리로 이동하여 아래 명령어 실행
-```
-python train.py -o [PATH] -c [PATH]
-```
-- o : checkpoint를 저장할 디렉토리
-- c : pre-trained checkpoint의 주소
-- --warmstart : pre-trained model 사용하여 학습 이어서 진행 여부
+> 웹 카메라(Cam) 과 피트니스(Fit)의 합성어
 
-### Inference
-학습이 완료 된 이후에 /speak_image/TTS 디렉토리로 이동하여 checkpoint 위치를 설정 후 아래 명령어 실행
-```
-python tacotron.py
+```text
+홈 피트니스(Fit)를 하는 동안, 웹 카메라(Cam)를 통해 촬영하면 AI가 사용자의 자세를 음성으로 트레이닝해주는 서비스
 ```
 
 
-## VC (Voice Conversion) => Sub PJT 3
-### TODO
-/speak_image/VC로 이동하여 아래 항목을 작성 필요
-- **requirements.txt** : 필요한 라이브러리 기입하여 한번에 install
-- **/preprocess/make_datasets_vctk.py** : waveform을 mel-spectrogram으로 변환하는 convert_file() 함수 구현
-- **solver.py** : 모델을 학습시키는 코드 작성
-- **voice_conversion.py** : 학습시킨 모델에 음성 2개를 입력하여 음성을 변환시키는 코드 작성
 
-### Preprocessing
-(1) VCTK dataset 다운로드
+* 기획 배경
 
-* [CSTR VCTK Corpus](http://www.udialogue.org/download/cstr-vctk-corpus.html): 109의 스피커로 구성된 멀티 스피커 데이터셋.
+  * Un-Tact 시대로 헬스장을 편하게 이용하지 못하게 되면서, 홈 피트니스를 택하는 사람이 늘고 있다. 특히 "헬린이(운동 초보자)"들은 정확한 자세를 하지 못해 다치거나 제대로 된 운동을 할 수 없다. 
 
-(2) 데이터 전처리
+    따라서, AI Training을 제공함으로써 헬린이들이 홈피트니스도 전문적으로 할 수 있도록 도와줄 것이다.
 
-/speak_image/VC/prepreprocess 디렉토리로 이동하여 vctk.config 수정 후 아래 명령어 실행
-```
-./preprocess_vctk
-```
-- **segment\_size** : 학습을 위한 segment size. Default: 128
-- **data\_dir** : 전처리 이후 저장할 디렉토리.
-- **raw\_data\_dir** :VCTK raw data 디렉토리.
-- **n_out_speakers** : test 스피커 인원. Default: 20
-- **test\_prop** : validation 비율. Default: 0.1
-- **training\_samples** : training segments for training. Default: 10000000
-- **testing_samples** : test segment 개수. Default: 10000
-- **n\_utt\_attr** : Normalizaion을 위해 평균과 표준편차를 구할 utterances 개수. Default: 5000
+  * 최근 헬스장 이용 고객이 줄어들면서 트레이너들의 입지가 약해지고 있다. 이러한 상황에도 그들이 수업과 생계를 이어나갈 수 있도록 온라인 환경을 제공한다. 
 
-### Training
-/speak_image/VC/solver.py 작성을 완료한 이후에 /speak_image/ 디렉토리로 이동하여 아래 명령 실행
-```
-.train.sh
-```
-- **c** : configuration 파일의 저장 위치
-- **d** : checkpoint를 저장할 디렉토리
-- **train\_set** : 학습에 사용하는 데이터 파일
-- **store\_model\_path** : 학습이완료된 모델을 저장할 위치
-- **summary\_steps** : training loss를 주기적으로 기록하는 step
-- **save\_steps** : 모델 저장 주기 step
-- **iters** : 모델을 학습시키는 iteration 횟수
-
-### Inference
-학습이 완료 된 이후에 /speak_image/ 디렉토리로 이동하여 아래 명령 실행
-```
-python voice_conversion.py
-```
-voice_conversion.py 에서 source auido, target audio, checkpoint path 등 설정 필요
+    따라서, On-Tact 시대에 헬스 트레이너와 회원을 Online으로 연결시켜주는 플랫폼을 제공한다.
 
 
-## References
-- [Bottom-Up and Top-Down Attention for Image Captioning and Visual Question Answering](https://arxiv.org/pdf/1707.07998.pdf), P. Anderson, *et al*.
-- [Natural TTS Synthesis by Conditioning WaveNet on Mel Spectrogram Predictions](https://arxiv.org/pdf/1712.05884.pdf), J. Shen, *et al*.
-- [One-shot Voice Conversion by Separating Speaker and Content Representations with Instance Normalization](https://arxiv.org/pdf/1904.05742.pdf), J. Chou, *et al*.
-- [MelGAN: Generative Adversarial Networks for Conditional Waveform Synthesis](https://arxiv.org/pdf/1910.06711.pdf), K. Kumar, *et al*.
-- [WaveGlow: A Flow-based Generative Network for Speech Synthesis](https://arxiv.org/pdf/1811.00002.pdf), R. Prenger, *et al*.
-- [ruotianluo's Image Captioning implementation](https://github.com/ruotianluo/ImageCaptioning.pytorch)
-- [NVIDIA's Tacotron+WaveGlow implementation](https://github.com/NVIDIA/tacotron2)
-- [jjery2243542's adaptive voice conversion implementation](https://github.com/jjery2243542/adaptive_voice_conversion)
-- [descriptinc's MelGAN implementation](https://github.com/descriptinc/melgan-neurips)
+
+* 서비스 목적
+
+  * AI Training 제공을 통해 운동자의 자세 교정
+  * Training Class Flatform 제공을 통해 트레이너와 운동자 연결
+* 주요 기능
+
+  * AI 코칭 
+    * 실시간으로 사용자의 자세를 분석해 음성으로 피드백 제공
+  * 온라인 화상 클래스
+    * 전문 트레이너와 운동자가 화상미팅으로 PT 진행 가능
+  * [더 많은 기능 보기](#CamFit's-기능)
+
+
+
+
+
+## 🔧 Install
+
+* Django 실행
+
+  1. 패키지 설치
+
+  ```text
+  $ pip install -r requirements.txt
+  ```
+
+  2. Django 실행
+
+  ```text
+  $ python manage.py runserver
+  ```
+
+* React 실행
+
+  1. 패키지 설치
+
+  ```text
+  $ npm i
+  ```
+
+  2. React 실행
+
+  ```text
+  $ npm start
+  ```
+
+
+
+
+
+## 📑 Project Construction
+
+* [Backend](./디렉토리구조/Backend.md)
+* [Frontend](./디렉토리구조/Frontend.md)
+* [AI](./디렉토리구조/AI.md)
+
+
+
+++ 시퀀스 다이어 그램
+
+[기능별 시퀀스 다이어그램](./기획/기능별 시퀀스다이어그램.md)
+
+
+
+##  📂Tech Stack
+
+### Tools
+
+| Tool          | 기술                                                 |
+| ------------- | ---------------------------------------------------- |
+| GitLab        | 기능별 branch를 나눠서 코드 버전 관리                |
+| Jira          | Issue 관리를 위해 Git과 연동하여 사용                |
+| Scrum Poker   | Jira Issue 별 스프린트 시간 관리를 위한 어플리케이션 |
+| VS Code       | code 구현을 위한 Tool                                |
+| Google Chrome | 구현한 화면을 출력하기 위한 브라우저                 |
+
+### ◾ Library
+
+| Library | 내용                                      |
+| ------- | ----------------------------------------- |
+| Django  | Backend 구현을 위한 python web framework  |
+| React   | Frontend 구현을 위한 JavaScript framework |
+
+### ◾ Software Language
+
+| Language   | 기술                             |
+| ---------- | -------------------------------- |
+| Python     | Backend 및 이미지 처리 구현 언어 |
+| JavaScript | Frontend 구현 언어               |
+| HTML/CSS   | Frontend 구현 언어               |
+
+
+
+## 🌍 배포방법
+
+#### Front
+
+1. 패키지 설치
+
+   ```
+   npm i
+   ```
+
+2. 프로젝트 build
+
+   ```
+   npm run build
+   ```
+
+3. nginx 설치
+
+   ```
+   sudo apt install nginx
+   ```
+
+4. https를 위한 인증서 발급
+
+   ```
+   sudo apt-get install letsencrypt
+   sudo letsencrypt certonly --standalone -d j4d104.p.ssafy.io
+   ```
+
+   
+
+5. 프로젝트 build 결과물을 배포할 설정 파일 생성
+
+   ```
+   sudo touch /etc/nginx/sites-available/frontends.conf
+   
+   sudo vi frontends.conf
+   
+   server {
+   	listen 80 default_server;
+   	listen [::]:80 default_server;
+   	server_name j4d104.p.ssafy.io;
+   	
+   	return 301 https://$server_name$request_uri;
+   }
+   
+   server {
+   	listen 443 ssl;
+   	listen [::]:443 ssl;
+   	
+   	root /home/ubuntu/s04p23d104/frontends/build;
+   	index index.html index.htm index.nginx-debian.html;
+   	
+   	server_name j4d104.p.ssafy.io;
+   	
+   	ssl_certificate /etc/letsencrypt/live/j4d104.p.ssafy.io/fullchain.pem;
+   	ssl_certificate_key /etc/letsencrypt/live/j4d104.p.ssafy.io/privkey.pem;
+   
+   	location / {
+   		try_files $uri $uri/ /index.html;
+   	}
+   }
+   ```
+
+6. nginx 신택스 검사 및 리부팅
+
+   ```
+   sudo nginx -t
+   sudo service nginx restart
+   ```
+
+
+
+#### Backend
+
+1. conda 가상환경에 requirements 설치
+
+   ```
+   pip install requirements.txt
+   # 여기에서 uwsgi는 설치가 안됨
+   ```
+
+2. conda 가상환경에 uWSGI 설치
+
+   ```
+   conda install -c conda-forge uwsgi
+   ```
+
+3. nginx config 파일 수정
+
+   ```
+   sudo vi /etc/nginx/sites-enabled/frontends.config
+   
+   #코드 추가
+   upstream backend {
+   	server localhost:8000;
+   }
+   
+   server {
+   	
+   	location / {
+   		...
+   	}
+   	
+   	location /api {
+   		proxy_pass http://backend;
+   		proxy_http_version 1.1;
+   		proxy_set_header Connection "";
+   
+   		proxy_set_header Host $host;
+   		proxy_set_header X-Real_IP $remote_addr;
+   		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+   		proxy_set_header X-Forwarded-Proto $scheme;
+   		proxy_set_header X-Forwarded-Host $host;
+   		proxy_set_header X-Forwarded-Port $server_port;
+     }
+   }
+   ```
+
+4. nginx 신택스 검사 및 재시작
+
+   ```
+   sudo nginx -t
+   sudo service nginx restart
+   ```
+
+5. 백서버 실행
+
+   ```
+   uwsgi --http :8000 --module backends.wsgi
+   ```
+
+
+
+#### 결과
+
+front : https://j4d104.p.ssafy.io
+
+back : https://j4d104.p.ssafy.io/api
+
+
+
+
+
+## 📖 기술 설명
+
+* [ERD](./기획/ERD.png) 
+* [Wire Frame](./기획/[인공눈물] 와이어프레임.pdf)
+  * 상세보기 : https://www.notion.so/9813c4963a3f4b9795a326e00f4bf9e9
+
+
+
+
+
+## CamFit's 기능
+
+* AI 코칭
+  * Teachable Machine
+    * 티쳐블머신 웹 상에서 모델링 후 프론트엔드에서 적용하고 각각의 상태값을 조정하여 여러 상황에 대응하였다.
+    * 시작, 갯수 세어주기, 자세 경고 등의 상황에서 각각에 맞는 wav파일을 재생하였다. 
+  * TTS (음성합성)
+    * ![TTS](./기획/TTS.JPG)
+    * 인코더
+      * 문자열을 캐릭터 임베딩으로 변환한 벡터를 입력으로 받는다.
+      * Convolution Layer와 Bidirectional LSTM Layer를 거쳐 feature를 인코딩한다.
+    * 디코더
+      * 인코더에서 얻은 encoded feature를 바탕으로 컨텍스트 벡터를 만들고 이에 attention mechanism을 적용한다.
+      * 최종적으로 디코더에서 mel-spectrogram을 생성한다.
+    * 보코더
+      * 디코더를 통해 생성한 mel-spectrogram을 보코더에 입력하여 음성 waveform을 합성할 수 있다.
+      * waveglow라는 보코더를 사용하였다.
+    * TTS 구현 후 상황에 따른 wav파일을 프론트엔드에서 빠르게 쓸 수 있게 미리 만들어놓고 재생하였다.
+* 온라인 화상 클래스
+  * 화상 미팅
+    * webRTC 패키지를 활용해 P2P통신을 구현하였다.
+      * getUserMedia() : 로컬 비디오와 오디오에 접근하여 미디어 데이터를 가져온다.
+      * RTCPeerConnection : 피어간 오디오, 비디오 통신을 활성화, 신호처리, 코덱관리, P2P 통신, 보안, 대역폭 관리 등을 수행
+      * Google의 공용 stun Server를 이용해 타 IP에 접근할 수 있도록 하였다. `'stun:stun.l.google.com:19302'`
+    * Firebase 를 활용해 실시간 데이터 통신을 구현하였다.
+
+* 정보 게시판
+
+
+
+
+
+
 

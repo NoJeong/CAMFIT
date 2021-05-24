@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  font-family: 'sandol',-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: 'sandol',source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@font-face {
+  font-family: 'PayboocMedium';
+  src: url('./fonts/payboocMedium.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'drfont';
+  src: url('./fonts/drfont_daraehand_Basic.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'mainttf';
+  src: url('./fonts/62570.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+@font-face {
+  font-family: 'sandol';
+  src: url('./fonts/sandol.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sandol';
+  src: url('./fonts/sandol.ttf') format('woff');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sandol';
+  src: url('./fonts/sandol.ttf') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sandol';
+  src: url('./fonts/sandol.ttf') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}

@@ -1,0 +1,27 @@
+.contrast2 {
+    -webkit-filter: contrast(90%) ;
+    filter: contrast(90%);
+}
+
+/* 
+//글자 왼쪽 정렬 */
+.outer2 {
+    position: relative;
+}
+.bottomleft {
+    position: absolute;
+    bottom: 40%;
+    left: 50px;
+    font-size: 18px;
+  }
+
+  .ttfex {
+    font-family: 'mainttf';
+  }
+
+.fontgra {
+    background: linear-gradient(to right, #01bf71, #2c2775);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}

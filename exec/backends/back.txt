@@ -1,0 +1,280 @@
+폴더 PATH의 목록입니다.
+볼륨 일련 번호는 F284-FB4A입니다.
+C:.
+|   back.txt
+|   db.sqlite3
+|   manage.py
+|   requirements.txt
+|   
++---.vscode
+|       settings.json
+|       
++---accounts
+|   |   admin.py
+|   |   apps.py
+|   |   models.py
+|   |   serializers.py
+|   |   tests.py
+|   |   urls.py
+|   |   views.py
+|   |   __init__.py
+|   |   
+|   +---migrations
+|   |   |   0001_initial.py
+|   |   |   0002_auto_20210323_1806.py
+|   |   |   0003_alert.py
+|   |   |   0004_alert_pushed_user.py
+|   |   |   0005_alert_category.py
+|   |   |   __init__.py
+|   |   |   
+|   |   \---__pycache__
+|   |           0001_initial.cpython-37.pyc
+|   |           0002_auto_20210323_1806.cpython-37.pyc
+|   |           0003_alert.cpython-37.pyc
+|   |           0004_alert_pushed_user.cpython-37.pyc
+|   |           0005_alert_category.cpython-37.pyc
+|   |           __init__.cpython-37.pyc
+|   |           
+|   \---__pycache__
+|           admin.cpython-37.pyc
+|           models.cpython-37.pyc
+|           serializers.cpython-37.pyc
+|           urls.cpython-37.pyc
+|           views.cpython-37.pyc
+|           __init__.cpython-37.pyc
+|           
++---backends
+|   |   asgi.py
+|   |   settings.py
+|   |   urls.py
+|   |   wsgi.py
+|   |   __init__.py
+|   |   
+|   \---__pycache__
+|           settings.cpython-37.pyc
+|           urls.cpython-37.pyc
+|           wsgi.cpython-37.pyc
+|           __init__.cpython-37.pyc
+|           
++---community
+|   |   admin.py
+|   |   apps.py
+|   |   models.py
+|   |   serializers.py
+|   |   tests.py
+|   |   urls.py
+|   |   views.py
+|   |   __init__.py
+|   |   
+|   +---migrations
+|   |   |   0001_initial.py
+|   |   |   0002_auto_20210326_1508.py
+|   |   |   0003_auto_20210326_1515.py
+|   |   |   __init__.py
+|   |   |   
+|   |   \---__pycache__
+|   |           0001_initial.cpython-37.pyc
+|   |           0002_auto_20210326_1508.cpython-37.pyc
+|   |           0003_auto_20210326_1515.cpython-37.pyc
+|   |           __init__.cpython-37.pyc
+|   |           
+|   \---__pycache__
+|           admin.cpython-37.pyc
+|           models.cpython-37.pyc
+|           serializers.cpython-37.pyc
+|           urls.cpython-37.pyc
+|           views.cpython-37.pyc
+|           __init__.cpython-37.pyc
+|           
++---fitclasses
+|   |   admin.py
+|   |   apps.py
+|   |   models.py
+|   |   serializers.py
+|   |   tests.py
+|   |   urls.py
+|   |   views.py
+|   |   __init__.py
+|   |   
+|   +---migrations
+|   |   |   0001_initial.py
+|   |   |   0002_auto_20210326_1651.py
+|   |   |   0003_auto_20210327_1424.py
+|   |   |   0004_fitclass_desc_image.py
+|   |   |   0005_fitclass_nickname.py
+|   |   |   __init__.py
+|   |   |   
+|   |   \---__pycache__
+|   |           0001_initial.cpython-37.pyc
+|   |           0002_auto_20210326_1651.cpython-37.pyc
+|   |           0003_auto_20210327_1424.cpython-37.pyc
+|   |           0004_fitclass_desc_image.cpython-37.pyc
+|   |           0005_fitclass_nickname.cpython-37.pyc
+|   |           __init__.cpython-37.pyc
+|   |           
+|   \---__pycache__
+|           admin.cpython-37.pyc
+|           models.cpython-37.pyc
+|           serializers.cpython-37.pyc
+|           urls.cpython-37.pyc
+|           views.cpython-37.pyc
+|           __init__.cpython-37.pyc
+|           
++---grasses
+|   |   admin.py
+|   |   apps.py
+|   |   models.py
+|   |   serializers.py
+|   |   tests.py
+|   |   urls.py
+|   |   views.py
+|   |   __init__.py
+|   |   
+|   +---migrations
+|   |   |   0001_initial.py
+|   |   |   __init__.py
+|   |   |   
+|   |   \---__pycache__
+|   |           0001_initial.cpython-37.pyc
+|   |           __init__.cpython-37.pyc
+|   |           
+|   \---__pycache__
+|           admin.cpython-37.pyc
+|           models.cpython-37.pyc
+|           serializers.cpython-37.pyc
+|           urls.cpython-37.pyc
+|           views.cpython-37.pyc
+|           __init__.cpython-37.pyc
+|           
++---infoboards
+|   |   admin.py
+|   |   apps.py
+|   |   models.py
+|   |   serializers.py
+|   |   tests.py
+|   |   urls.py
+|   |   views.py
+|   |   __init__.py
+|   |   
+|   +---migrations
+|   |   |   0001_initial.py
+|   |   |   __init__.py
+|   |   |   
+|   |   \---__pycache__
+|   |           0001_initial.cpython-37.pyc
+|   |           __init__.cpython-37.pyc
+|   |           
+|   \---__pycache__
+|           admin.cpython-37.pyc
+|           models.cpython-37.pyc
+|           serializers.cpython-37.pyc
+|           urls.cpython-37.pyc
+|           views.cpython-37.pyc
+|           __init__.cpython-37.pyc
+|           
++---selftrains
+|   |   admin.py
+|   |   apps.py
+|   |   models.py
+|   |   serializers.py
+|   |   tests.py
+|   |   urls.py
+|   |   views.py
+|   |   __init__.py
+|   |   
+|   +---migrations
+|   |   |   0001_initial.py
+|   |   |   0002_auto_20210405_0422.py
+|   |   |   __init__.py
+|   |   |   
+|   |   \---__pycache__
+|   |           0001_initial.cpython-37.pyc
+|   |           0002_auto_20210405_0422.cpython-37.pyc
+|   |           __init__.cpython-37.pyc
+|   |           
+|   \---__pycache__
+|           admin.cpython-37.pyc
+|           models.cpython-37.pyc
+|           serializers.cpython-37.pyc
+|           urls.cpython-37.pyc
+|           views.cpython-37.pyc
+|           __init__.cpython-37.pyc
+|           
+\---Uploaded_Files
+    |   123.jpg
+    |   123_TEagDO9.jpg
+    |   dancing_thumbnail.PNG
+    |   jj_thumbnail.PNG
+    |   kim_image.PNG
+    |   kim_thumbnail.PNG
+    |   physical_thumbnail.PNG
+    |   physical_thumbnail_pPUF155.PNG
+    |   pole_image.PNG
+    |   pole_thumbnail.PNG
+    |   shim_image.PNG
+    |   shim_thumbnail.PNG
+    |   snpe_image.PNG
+    |   snpe_thumbnail.PNG
+    |   yang_image.PNG
+    |   yang_thumbnail.PNG
+    |   yoochael_image.PNG
+    |   yoochael_image_cw6rPz2.PNG
+    |   yoochael_thumbnail.PNG
+    |   저글링.jpg
+    |   저글링_VAVyYC5.jpg
+    |   제목을_입력해주세요._002.png
+    |   
+    +---20210326
+    |       제목을_입력해주세요._001.png
+    |       제목을_입력해주세요._002.png
+    |       제목을_입력해주세요._003.png
+    |       
+    +---20210329
+    |       WIFI사용법.jpg
+    |       저글링.jpg
+    |       
+    +---20210330
+    |       WIFI사용법.jpg
+    |       저글링.jpg
+    |       
+    +---20210331
+    |       제목을_입력해주세요._001.png
+    |       제목을_입력해주세요._002.png
+    |       제목을_입력해주세요._003.png
+    |       제목을_입력해주세요._004.png
+    |       제목을_입력해주세요._005.png
+    |       
+    +---20210403
+    |       WIFI사용법.jpg
+    |       WIFI사용법_BZu7TwN.jpg
+    |       WIFI사용법_d3Kv9GV.jpg
+    |       저글링.jpg
+    |       저글링_HaNGD7u.jpg
+    |       
+    +---20210404
+    |       저글링.jpg
+    |       저글링_B9fV3K7.jpg
+    |       제목을_입력해주세요._001.png
+    |       제목을_입력해주세요._002.png
+    |       제목을_입력해주세요._002_2snpj2w.png
+    |       제목을_입력해주세요._003.png
+    |       제목을_입력해주세요._004.png
+    |       제목을_입력해주세요._007.png
+    |       
+    \---20210405
+            WIFI사용법.jpg
+            저글링.jpg
+            저글링_3bWc4Wm.jpg
+            저글링_9zeHf4t.jpg
+            저글링_CovBf9j.jpg
+            저글링_Ehv9s0z.jpg
+            저글링_EPcEvzY.jpg
+            저글링_I1pQePn.jpg
+            저글링_Iuvu0HI.jpg
+            저글링_LN9f0LL.jpg
+            저글링_M9H2X3W.jpg
+            저글링_rVAhOmQ.jpg
+            저글링_tjCYV3f.jpg
+            저글링_tkUj1kE.jpg
+            저글링_xasYpE8.jpg
+            

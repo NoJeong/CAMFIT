@@ -1,0 +1,101 @@
+.Classes-Card {
+  background: #fff;
+  display: flex;
+  flex-direction: flex-start;
+  /* align-items: center; */
+  border-radius: 30px;
+  border: none;
+  max-width: 300px;
+  /* max-height: 450px; */
+  height: 500px;
+  /* padding: 30px; */
+  /* box-shadow:  1px 3px rgba(0, 0, 0, 0.2); */
+  transition-timing-function: all 0.2s ease-in-out;
+  margin-bottom: 50px;
+  margin-top: 150px;
+  margin: auto;
+}
+
+.Classes-Card:hover {
+  transform: scale(1.02);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+
+.Classes-Img {
+  margin-bottom: 15px;
+  border-radius: 30px;
+  height: 300px;
+  /* width: 370px; */
+}
+
+
+.Classes-Trainer {
+  /* text-align: left; */
+  font-family: 'payboocMedium';
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: black;
+}
+
+
+.Classes-Title {
+  font-size: 1.25rem;
+  font-family: 'payboocMedium';
+  /* text-align: left; */
+  margin-bottom: 10px;
+  color: black;
+}
+
+
+.Classes-Price {
+  text-decoration-line: line-through;
+  /* text-align: left; */
+  font-weight: bolder;
+  font-family: 'payboocMedium';
+  color: black;
+  font-size: 2.3rem;
+}
+
+
+
+p {
+  font-size: 30px;
+}
+
+.upload {
+  text-align: center;
+  background-color:#01bf71;
+  font-family: 'payboocMedium';
+  
+}
+
+.btntext {
+  font-family: 'payboocMedium';
+  color: black;
+}
+
+.classmain {
+    
+  height: 600px;
+ 
+  background-position: center, center;
+  /* background-color:rgba(255, 255, 255, 0.2); */
+  width: 100%;
+  position: relative;
+  text-align:center;
+  /* opacity: 0.5;
+  z-index: -1; */
+
+}
+.classmain::before{
+content: "";
+background: url("./images/classmain.jpg");
+background-size: 100% 600px;
+position: absolute;
+top: 0px;
+left: 0px;
+right: 0px;
+bottom: 0px;
+}

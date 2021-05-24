@@ -1,0 +1,53 @@
+.container {
+    justify-content: center;
+
+}
+
+.Excer {
+    
+    height: 800px;
+    background-position: center, center;
+    /* background-color:rgba(255, 255, 255, 0.2); */
+    width: 100%;
+    position: relative;
+    /* opacity: 0.5;
+    z-index: -1; */
+
+}
+.Excer::before{
+  content: "";
+  background:  url("./images/exermain.jpg");
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.youtube {
+    align-items: center;
+}
+
+.app__container {
+    margin-top:10px;
+    
+    /* border: 1px solid black; */
+}
+
+  
+.app__target {
+margin-top: 10px;
+}

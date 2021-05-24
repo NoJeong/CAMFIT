@@ -1,0 +1,189 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
+
+html {
+  font-size: 16px;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  line-height: 1;
+}
+
+.Root {
+  height: 100vh;
+}
+
+.Tabs {
+  height: 100%;
+  display: flex;
+}
+
+.TabList {
+  width: 10rem;
+  background: #263238;
+}
+
+.TabPanel {
+  flex: 1;
+  display: none;
+  padding: 1.5rem 2rem;
+}
+.TabPanel.is-active {
+  display: block;
+}
+
+.Button {
+  display: inline-block;
+  width: 100%;
+  padding: 1rem 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+}
+.Button:focus,
+.Button:hover {
+  outline: 0;
+  background: #37474F;
+}
+.Tab.is-active .Button {
+  background: #0091EA;
+}
+.site-content {
+    /* min-height: 280px; */
+    padding-left: 80px;
+    padding-right: 50px;
+    padding-top: 100px;
+  }
+.outer2 {
+  width:100%;
+  /* height:150px;  Any height is allowed, also in %. */
+}
+.inner2 {
+    /* position:relative; */
+    text-align:center;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    width: 100%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+.multi2 {
+    display: block;
+    top: 35%;
+    margin-top: 100px;
+    opacity: 1 !important; 
+    
+ }
+
+.bgc {
+  border-radius: 20px;
+}
+
+.arrow_next {
+  position: absolute;
+ top: 50%;
+ -webkit-transform: translateY(-50%);
+         transform: translateY(-50%);
+}
+
+.bgrepeat{
+  background-repeat:repeat-y;
+}
+
+.site-layout-background {
+  background-color: black;
+  /* opacity: 0.5; */
+}
+
+.site-content2 {
+  /* min-height: 280px; */
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-top: 50px;
+}
+
+/* 카테고리  */
+.catecol {
+  border-radius: 5px;
+  background-color: #263238;
+}
+
+/* 운동 설명 */
+.exborder {
+  border: 2px solid #61D6C1;
+}
+
+/* 셀프 트레인 디테일 배경*/
+.trainbgr {
+  background: #E0ECEA;
+}
+
+/* 위치 이후 첫번째 줄 */
+.ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-tail::after {
+  background-color: grey;
+}
+/*위치 이후에 첫번째 점*/
+.ant-steps-item-process .ant-steps-item-icon > .ant-steps-icon .ant-steps-icon-dot {
+  background-color: red;
+}
+/*위치 이후에 첫번째 점*/
+.ant-steps-item-process .ant-steps-item-icon > .ant-steps-icon .ant-steps-icon-dot {
+  background-color: red;
+}
+/*지나간 줄*/
+.ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-tail::after {
+  background-color: orangered;
+}
+/*나머지 줄*/
+.ant-steps-item-wait > .ant-steps-item-container > .ant-steps-item-tail::after {
+  background-color: grey;
+}
+/*지나간 점*/
+.ant-steps-item-finish .ant-steps-item-icon > .ant-steps-icon .ant-steps-icon-dot {
+  background-color: red;
+}
+/* 전체 박스 */
+.ant-steps {
+  /* background-color: aliceblue; */
+  font-weight: bold;
+  font-style:oblique;
+  
+}
+/* 글자 박스 */
+.ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-description {
+  color: aliceblue;
+  /* background-color: #0091EA; */
+}
+.ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title {
+  color: aliceblue;
+}
+.ant-steps-item-wait > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title {
+  color: aliceblue;
+}
+.ant-steps-item-wait > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-description {
+  color: aliceblue;
+}
+
+.ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title {
+  color: aliceblue;
+}
+.ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-description {
+  color: aliceblue;
+}
+
+
+/* 숨겨진 버튼 */
+.ant-btn-round.ant-btn-lg {
+  padding: 67px 14px 112px 7px;
+  border-radius: 100px;
+  margin-right: 99px;
+  font-weight: bold;
+  font-size: 30px;
+  border-style: 50px;
+}
